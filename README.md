@@ -6,21 +6,7 @@ wget https://github.com/ihciah/shadow-tls/releases/download/v0.2.25/shadow-tls-x
 - **2.写入配置文件**
 
 ```bash
-[Unit]
-Description=Shadow-TLS Server Service
-Documentation=man:sstls-server
-After=network-online.target
-Wants=network-online.target
-
-[Service]
-Type=simple
-ExecStart=/usr/local/bin/shadow-tls --fastopen --v3 server --listen 0.0.0.0:8443 --server 127.0.0.1:12321 --tls gateway.icloud.com  --password JsJeWtjiUytremklO0oehf
-StandardOutput=syslog
-StandardError=syslog
-SyslogIdentifier=shadow-tls
-
-[Install]
-WantedBy=multi-user.target
+curl -Lo /etc/systemd/system/shadow-tls.service https://raw.githubusercontent.com/MHY2233/Shadow-Tls/main/shadow-tls.service && systemctl daemon-reload
 ```
 - **3.重载配置文件**
 ```
