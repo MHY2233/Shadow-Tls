@@ -5,7 +5,7 @@
 
 - **2.写入配置文件**
 
-```
+```bash
 [Unit]
 Description=Shadow-TLS Server Service
 Documentation=man:sstls-server
